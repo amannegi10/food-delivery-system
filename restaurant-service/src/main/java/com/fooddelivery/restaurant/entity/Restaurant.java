@@ -1,5 +1,6 @@
 package com.fooddelivery.restaurant.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ public class Restaurant {
     private String cuisine;
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<MenuItem> menuItems = new ArrayList<>();
 
     public Restaurant() {
