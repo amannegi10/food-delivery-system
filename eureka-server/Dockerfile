@@ -5,7 +5,7 @@ WORKDIR /app
 COPY pom.xml ./pom.xml
 COPY eureka-server ./eureka-server
 
-RUN mvn -f eureka-server/pom.xml clean package -DskipTests
+RUN mvn -f eureka-server/pom.xml clean package spring-boot:repackage -DskipTests
 
 FROM eclipse-temurin:17-jre
 
